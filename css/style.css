@@ -64,6 +64,33 @@ body {
   background-color: #ffffff;
 }
 
+/*use for float up animation*/
+.slideanim {
+  visibility:hidden;
+  visibility:visible\9;/*For old IE browsers IE6-8 */
+}
+.slideanim.slide {
+  visibility: visible;
+  animation: slide 1s;
+}
+.slideanim::after {
+  /* useful when its child elements are float:left; */
+  content: "";
+  display: table;
+  clear: both;
+}
+@keyframes slide {
+  0% {
+      opacity: 0;
+      transform: translateY(50%);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important;
 }
@@ -9984,3 +10011,5 @@ h6,
   padding: 0;
   list-style-type: none;
 }
+
+
